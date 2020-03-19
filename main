@@ -22,7 +22,7 @@
 
 <tr>
 <td> <p> Entrez un nombre entier </p> </td>
-<td><input type="number" required placeholder="Nombre entier" class="nbEntier" id="nbEntier" > </td>
+<td><input required placeholder="Nombre entier" class="nbEntier" id="nbEntier" > </td>
 <td><button type="submit" onclick="submitF()"> Soumettre </button></td> </div>
 <td><button type="submit"> Recommencer </button></td>
 </tr>
@@ -71,10 +71,10 @@ var arrNumbers = [];
 
 function submitF(){
 
-	var entier = document.getElementById("nbEntier").value;
+	var xxx = document.getElementById("nbEntier").value;
 
-	if (Number.isInteger(entier)){
-	arrNumbers.push(entier);
+	if (!isNaN(parseInt(xxx))){
+	arrNumbers.push(xxx);
 	console.log(arrNumbers);
 
 	calculX();
@@ -83,7 +83,7 @@ function submitF(){
 
 	else{
 	window.alert("Veuillez entrer un nombre entier.");
-	console.log("La donnée encodée suiante n'a pas été ajoutée au tableau : " + entier);
+	console.log("La donnée encodée suiante n'a pas été ajoutée au tableau : " + xxx);
 	}
 
 	}
