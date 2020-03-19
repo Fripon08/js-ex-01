@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+	<title> html-css-ex-01 </title>
+	<link = rel="stylesheet" href="index.css">
+	<meta charset="utf-8">
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+<table>
+
+<tr>
+<td> <p> Entrez un nombre entier </p> </td>
+<td><input type="number" required placeholder="Nombre entier" class="nbEntier" id="nbEntier" > </td>
+<td><button type="submit" onclick="submitF()"> Soumettre </button></td> </div>
+<td><button type="submit"> Recommencer </button></td>
+</tr>
+
+
+<tr>
+<td> Le nombre de nombres entrés : </td>
+<td> <input id="nOfNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> La somme des nombres entrés </td>
+<td> <input id="sumOfNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> Le plus grand des nombres entrés : </td>
+<td> <input id="bigNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> Le plus petit des nombres entrés : </td>
+<td> <input id="smallNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> La moyenne des nombres entrés : </td>
+<td> <input id="avNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> La liste de tous les nombres entrés : </td>
+<td> <input id="allNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> La plus grande séquence de nombres <br> croissants entrés : </td>
+<td> <input id="hSeqNTag" placeholder="0" readonly> </td>
+</tr>
+
+</table>
+
+<script type="text/javascript">
+
+var arrNumbers = [];
+
+function submitF(){
+	var entier; 
+
+	entier = document.getElementById("nbEntier").value;
+
+	if (Number.isInteger(+entier)){
+	arrNumbers.push(+entier);
+	console.log(arrNumbers);
+
+	calculX();
+
+	}
+
+	else{
+	window.alert("Veuillez entrer un nombre entier.");
+	console.log("La donnée encodée suiante n'a pas été ajoutée au tableau : " + entier);
+	}
+
+	}
+
+function calculX(){
+	var nOfN, sumOfN, bigN, smallN, avN, allN, hSeqN;
+
+	//Nombre de nombres entrés
+	nOfN = arrNumbers.length;
+	document.getElementById("nOfNTag").value = nOfN;
+
+	//Somme des nombres entrés
+	sumOfN = arrNumbers.reduce(function(a, b){return a + b;}, 0);
+	document.getElementById("sumOfNTag").value = sumOfN;
+
+	//Plus grand des nombres entrés 
+	bigN = Math.max(...arrNumbers);
+	document.getElementById("bigNTag").value = bigN;
+
+	//Plus petit des nombres entrés
+	smallN = Math.min(...arrNumbers);
+	document.getElementById("smallNTag").value = smallN;
+
+	//Moyenne des nombres entrés
+	avN = arrNumbers.reduce(function(a, b){return a + b / arrNumbers.length}, 0);
+	document.getElementById("avNTag").value = avN;
+
+	//Liste de tous les nombres entrés
+	allN = arrNumbers;
+	document.getElementById("allNTag").value = allN; 
+
+	//Plus grande séquence de nombres croissants entrés
+	arr = [4, 5, 1];
+	newArr = [];
+
+	for (var i = 0; i < arr.length; i++)
+	{
+
+		if (arr[i] < arr[i] + 1){
+			newArr.push(arr[i]);
+			document.getElementById("hSeqNTag").value = newArr;
+			console.log(i);
+
+		}
+
+	}
+	
+	
+			
+
+}
+
+	</script>
+
+</body>
+
+</html>
