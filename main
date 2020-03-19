@@ -2,21 +2,12 @@
 <html>
 
 <head>
-
 	<title> html-css-ex-01 </title>
 	<link = rel="stylesheet" href="index.css">
 	<meta charset="utf-8">
-
 </head>
 
 <body>
-
-
-
-
-
-
-
 
 <table>
 
@@ -74,7 +65,7 @@ function submitF(){
 	var xxx = document.getElementById("nbEntier").value;
 
 	if (!isNaN(parseInt(xxx))){
-	arrNumbers.push(xxx);
+	arrNumbers.push(+xxx);
 	console.log(arrNumbers);
 
 	calculX();
@@ -127,7 +118,7 @@ function calculX(){
 
 		else {
 			newArr.push(counter);
-			counter = 0;
+			counter = 1;
 		}
 
 	}
