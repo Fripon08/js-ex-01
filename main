@@ -70,12 +70,11 @@
 var arrNumbers = [];
 
 function submitF(){
-	var entier; 
 
-	entier = document.getElementById("nbEntier").value;
+	var entier = document.getElementById("nbEntier").value;
 
-	if (Number.isInteger(+entier)){
-	arrNumbers.push(+entier);
+	if (Number.isInteger(entier)){
+	arrNumbers.push(entier);
 	console.log(arrNumbers);
 
 	calculX();
@@ -109,7 +108,7 @@ function calculX(){
 	document.getElementById("smallNTag").value = smallN;
 
 	//Moyenne des nombres entrés
-	avN = arrNumbers.reduce(function(a, b){return a + b / arrNumbers.length}, 0);
+	avN = sumOfN / arrNumbers.length;
 	document.getElementById("avNTag").value = avN;
 
 	//Liste de tous les nombres entrés
@@ -117,20 +116,22 @@ function calculX(){
 	document.getElementById("allNTag").value = allN; 
 
 	//Plus grande séquence de nombres croissants entrés
-	arr = [4, 5, 1];
+
 	newArr = [];
+	counter = 1;
 
-	for (var i = 0; i < arr.length; i++)
-	{
+	for (var i = 0; i < arrNumbers.length; i++){
+		if (arrNumbers[i] < arrNumbers[i+1]){
+			counter ++;
+		}
 
-		if (arr[i] < arr[i] + 1){
-			newArr.push(arr[i]);
-			document.getElementById("hSeqNTag").value = newArr;
-			console.log(i);
-
+		else {
+			newArr.push(counter);
+			counter = 0;
 		}
 
 	}
+document.getElementById("hSeqNTag").value = Math.max(...newArr);
 	
 	
 			
