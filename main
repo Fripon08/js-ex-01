@@ -2,12 +2,21 @@
 <html>
 
 <head>
+
 	<title> html-css-ex-01 </title>
 	<link = rel="stylesheet" href="index.css">
 	<meta charset="utf-8">
+
 </head>
 
 <body>
+
+
+
+
+
+
+
 
 <table>
 
@@ -110,21 +119,36 @@ function calculX(){
 
 	newArr = [];
 	counter = 1;
+	sliceEnd = 0;
+	sliceStart = 0;
+	hSeqN = [];
+	lastNofSeq = [];
+	testArr = [1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5, 1, 2, 7, 9, 10, 13, 15, 17, 18, 22, 1, 2, 48];
+
 
 	for (var i = 0; i < arrNumbers.length; i++){
 		if (arrNumbers[i] < arrNumbers[i+1]){
 			counter ++;
+			console.log(counter);
+
 		}
 
 		else {
 			newArr.push(counter);
-			counter = 1;
-		}
+			lastNofSeq.push(arrNumbers.indexOf(arrNumbers[i]));
+			sliceEnd = lastNofSeq[newArr.indexOf(Math.max(...newArr))] + 1;
+			sliceStart = sliceEnd - Math.max(...newArr);
+			hSeqN = arrNumbers.slice(sliceStart, sliceEnd);
 
+			document.getElementById("hSeqNTag").value = hSeqN;
+
+			counter = 1;
+
+
+
+		}
 	}
-document.getElementById("hSeqNTag").value = Math.max(...newArr);
-	
-	
+
 			
 
 }
