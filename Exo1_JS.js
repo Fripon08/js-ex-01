@@ -3,14 +3,25 @@ let annees;
 let conver;
 let degres;
 let deuxnombres;
+let calad;
+let calsous;
+let caldiv;
+let calmult;
+let caldivr;
+let calexp;
 
 
 document.getElementById('pair').addEventListener('click',execute);
 document.getElementById('biss').addEventListener('click',execute);
 document.getElementById('conv').addEventListener('click',execute);
 document.getElementById('equa').addEventListener('click',execute);
-document.getElementById('cal').addEventListener('click',execute);
 document.getElementById('som').addEventListener('click',execute);
+document.getElementById('Ad').addEventListener('click',execute);
+document.getElementById('Sous').addEventListener('click',execute);
+document.getElementById('Mult').addEventListener('click',execute);
+document.getElementById('Div').addEventListener('click',execute);
+document.getElementById('Divr').addEventListener('click',execute);
+document.getElementById('Exp').addEventListener('click',execute);
 
 
 function execute() {
@@ -21,14 +32,30 @@ function execute() {
 	const nbre5=Number(document.getElementById('b').value);
 	const nbre6=Number(document.getElementById('nbs1').value);
 	const nbre7=Number(document.getElementById('nbs2').value);
-	const nbre8=Number(document.getElementById('nbcal1').value);
-	const nbre9=Number(document.getElementById('nbcal2').value);
+	const nbre8=Number(document.getElementById('nbad1').value);
+	const nbre9=Number(document.getElementById('nbad2').value);
+	const nbre10=Number(document.getElementById('nbsous1').value);
+	const nbre11=Number(document.getElementById('nbsous2').value);
+	const nbre12=Number(document.getElementById('nbmult1').value);
+	const nbre13=Number(document.getElementById('nbmult2').value);
+	const nbre14=Number(document.getElementById('nbdiv1').value);
+	const nbre15=Number(document.getElementById('nbdiv2').value);
+	const nbre16=Number(document.getElementById('nbdivr1').value);
+	const nbre17=Number(document.getElementById('nbdivr2').value);
+	const nbre18=Number(document.getElementById('nbexp1').value);
+	const nbre19=Number(document.getElementById('nbexp2').value);
 
 	double = pair(nbre1);
 	annees = bissextile(nbre2);
 	conver = convertisseur(nbre3);
 	degres = equation(nbre4, nbre5);
 	deuxnombres = somdeuxnombres(nbre6, nbre7);
+	calad = addition(nbre8, nbre9);
+	calsous = soustraction(nbre10, nbre11);
+	calmult = multiplication(nbre12, nbre13);
+	caldiv = division(nbre14, nbre15);
+	caldivr = divisionreste(nbre16, nbre17);
+	calexp = exposant(nbre18, nbre19);
 
 	writeResponse();
 }
@@ -103,7 +130,7 @@ function somdeuxnombres(nbre6, nbre7){
 
 	temp = nbre6;
 	temp2 = nbre7;
-	
+
 	if (nbre6>nbre7){
 	    while (nbre6>=nbre7){
 	        somme=somme+nbre7;
@@ -128,8 +155,53 @@ function somdeuxnombres(nbre6, nbre7){
 	return total;
 }
 
-function calculatrice() {
+function addition(nbre8, nbre9) {
+	let Rad;
+	Rad = nbre8 + nbre9;
 
+	return Rad;
+}
+
+function soustraction(nbre10, nbre11){
+	let Rsous;
+	Rsous = nbre10 - nbre11;
+
+	return Rsous;
+}
+
+function multiplication(nbre12, nbre13){
+	let Rmult;
+	Rmult = nbre12*nbre13;
+
+	return Rmult;
+}
+
+function division(nbre14, nbre15){
+	let Rdiv;
+	Rdiv = nbre14/nbre15;
+
+	return Rdiv;
+}
+
+function divisionreste(nbre16, nbre17){
+	let Rdivr;
+	let R;
+	let reponse;
+
+	R = nbre16%nbre17;
+	Rdivr = Math.trunc(nbre16/nbre17);
+	reponse = ( Rdivr + " R= " + Rdivr );
+
+
+	return reponse;
+
+}
+
+function exposant(nbre18, nbre19){
+	let Rexp;
+	Rexp = Math.pow(nbre18, nbre19);
+
+	return Rexp;
 }
 
 function writeResponse() {
@@ -138,4 +210,10 @@ function writeResponse() {
 	document.getElementById("Convertisseur").value = conver;
 	document.getElementById("Equation").value = degres;
 	document.getElementById("Somme2nombres").value = deuxnombres;
+	document.getElementById("Adcalculette").value = calad;
+	document.getElementById("Souscalculette").value = calsous;
+	document.getElementById("Multcalculette").value = calmult;
+	document.getElementById("Divcalculette").value = caldiv;
+	document.getElementById("Divrcalculette").value = caldivr;
+	document.getElementById("Expcalculette").value = calexp;
 }
