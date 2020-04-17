@@ -1,17 +1,40 @@
 let total;
 let grand;
 let petit;
+let tab=[];
+let nbremoy;
+let nbrecb;
+let p;
 document.getElementById('sub').addEventListener('click',execute);
+document.getElementById('subre').addEventListener('click',recom);
 
 function execute () {
-	
-	let nbre=Number(document.getElementById('nbr').value);
-	let tab=[];
-	tab.push(nbre);
-	total=somme(tab);
-	grand=max(tab);
-	petit=min(tab);
-	console.log(total); console.log(grand); console.log(petit);
+	const nbreAsString = document.getElementById('nbr').value;
+
+	if (nbreAsString !== "" && Number.isInteger(Number(nbreAsString))){
+		const nbre=Number(document.getElementById('nbr').value);
+		tab.push(nbre);
+		total=somme(tab);
+		grand=max(tab);
+		petit=min(tab);
+		nbrecb=tab.length;
+		nbremoy=total/nbrecb;
+		p=nbrenbr(tab);
+
+		writeResponse();
+	}
+}
+
+function recom() {
+
+	tab=[];
+	total=0;
+	grand=0;
+	petit=0;
+	nbremoy=0;
+	nbrecb=0;
+
+	writeResponse();
 }
 
 function somme(tab) {
@@ -44,30 +67,25 @@ function max(tab){
 	return max;
 }
 
-function moyenne(tab) {
+function nbrenbr(tab) {
+	let energy;
+	let tabfruit = [];
+	var j = 0;
 
+	for (var i = 0; i < tab.length; i++) {
+		tabfruit[j] = tab[i];
+		j++;
+	}
+	
+	energy = tabfruit.join(" , ");
+	return energy;
 }
 
-function Nnbre() {
-
+function writeResponse() {
+	document.getElementById("somme").value = total;
+	document.getElementById("nbremax").value = grand;
+	document.getElementById("nbremin").value = petit;
+	document.getElementById("nbremoyenne").value = nbremoy;
+	document.getElementById("nbrenbr").value = nbrecb;
+	document.getElementById("nbrenbre").value = p;
 }
-
-
-/*var nbr;
-	nbr1 = Number(document.getElementById("nbr1").value);
-	nbr2 = Number(document.getElementById("nbr2").value);
-	sum = nbr1 + nbr2;
-	document.getElementById("sum").value = sum;*/
-/*
-function numAverage(a) {
-  var b = a.length,
-      c = 0, i;
-  for (i = 0; i < b; i++){
-    c += Number(a[i]);
-  }
-  return c/b;
-}
-
-numAverage([5, 1, 1, 1, 5]);
-somme();
-*/
